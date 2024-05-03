@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garage</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>Cars in Stock:</h1>
+    <div id="display"> </div>
+    <div class="input-field">
+        Customer Name: <input id="cName"><br>
+        Car Makes: <input id="cType"><br>
+        Car Model: <input id="cModel"><br>
+        Car Color: <input id="cColor">
+        <button onclick="saveCust()">Save Customer</button>
+    </div>
+
+    <script>
+
+        let customers = JSON.parse(localStorage.getItem("customers")) || [
+            { name: "Mary", type: "Kia", model: "Picanto", color: "Red" }
+        ];
+
+        function displayData() {
+            let temp = "<ol>"
+            for (let i = 0; i < customers.length; i++) {
+                temp += `<li>${customers[i].name},
+                    ${customers[i].type},
+                    ${customers[i].model},
+                    ${customers[i].color}
+                    <button onclick='deleteCust(${i})'>Delete</button>
+                    <button onclick='updateCustomer(${i})'>Update Info</button>`
+            }
+            display.innerHTML = temp
+        }
+        displayData()
+
+        function saveCust() {
+            customers.push({ name: cName.value, type: cType.value, model: cModel.value, color: cColor.value })
+            localStorage.setItem("customers", JSON.stringify(customers))
+            displayData()
+            cName.value = '';
+            cType.value = '';
+            cModel.value = '';
+            cColor.value = '';
+
+        }
+        function show() {
+            customers = JSON.parse(localStorage.getItem("customers"))
+            displayData()
+        }
+        function deleteCust(ind) {
+            customers.splice(ind, 1);
+            localStorage.setItem("customers", JSON.stringify(customers));
+            displayData();
+        }
+
+
+        function updateCustomer(i) {
+            let newName = prompt("Enter new name", customers[i].name);
+            let newType = prompt("Enter new car make", customers[i].type);
+            let newModel = prompt("Enter new car model", customers[i].model);
+            let newColor = prompt("Enter new car color", customers[i].color);
+
+            customers[i] = { name: newName, type: newType, model: newModel, color: newColor };
+            localStorage.setItem("customers", JSON.stringify(customers));
+            displayData();
+        }
+    </script>
+
+</body>
+
+</html>

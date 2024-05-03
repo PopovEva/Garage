@@ -1,0 +1,87 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('garage.jpg');
+    background-size: cover;
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+    }
+    
+    h1 {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ebde23;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    }
+    
+    #display, .input-field {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    }
+    
+    ol {
+    padding: 0;
+    }
+    
+    ol li {
+    background-color: #333;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    position: relative;
+    }
+    
+    .input-field {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px; /* Добавляем отступ снизу для каждого поля ввода */
+        width: 100%; /* Ширина поля ввода на всю ширину родителя */
+        }
+    .input-field + .input-field {
+            margin-top: 20px; /* Добавляем отступ сверху для всех полей ввода, кроме первого */
+    }
+
+    input[type="text"] {
+        padding: 10px;
+        margin: 0; /* Убираем внешний отступ */
+        border: 2px solid #ddd;
+        border-radius: 4px;
+        background-color: #333;
+        color: #fff;
+        width: calc(100% - 40px); /* Вычитаем padding из ширины */
+        box-sizing: border-box; /* Чтобы padding не влиял на ширину поля */
+        }
+    
+    input[type="button"] {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 20px; /* Кнопки с закругленными краями */
+    background-color: #5cb85c;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px #3d6d3d;
+    }
+    
+    input[type="button"]:hover {
+    background-color: #4cae4c;
+    }
+    
+    button {
+    padding: 5px 15px;
+    border: none;
+    border-radius: 20px; /* Кнопки с закругленными краями */
+    background-color: #d9534f;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px #9f2828;
+    }
+    
+    button:hover {
+    background-color: #c9302c;
+    }
